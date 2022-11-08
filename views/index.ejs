@@ -1,0 +1,157 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+  <title>Weather</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <form action="/result" method="post">
+    <input type="text" name="City_name" id="">
+    <input type="submit" value="enter">
+  </form>
+
+  <% if(trying){ %>
+    <%= tmax %>
+      <%= tmin %>
+
+
+
+        <%}%>
+
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="icon" href="logo.png" type="image/ico" />
+    <title>Weather</title>
+  </head>
+
+  <body class="light-theme">
+    <section id="nav">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="forecast.html">Forecast</a></li>
+        <li><a href="#" class="theme">Dark Mode</a></li>
+      </ul>
+    </section>
+    <section id="main">
+      <nav>
+        <i class="fas fa-bars toggler"></i>
+        <h2>Weather App <i class="fas fa-cloud-meatball"></i></h2>
+        <h3 id="time"></h3>
+      </nav>
+      <div id="popup">
+        <div class="popup-flex">
+          <button id="popup-btn">Click Me</button>
+        </div>
+
+
+      </div>
+
+
+      <main>
+        <form class="input" method="post" action="/result">
+          <input type="text" class="inputValue" name="City_name" placeholder="Enter a city"
+            onkeypress="return runScript(event)" />
+          <button class="button">Search</button>
+        </form>
+        <div class=" spin">
+          <div class="loader">Loading...</div>
+          <p class="ml10">
+            <span class="text-wrapper">
+              <span class="letters">Gathering info...</span>
+            </span>
+          </p>
+        </div>
+        <% if(trying){ %>
+
+          <div class="temp">
+            <div class="label">
+              <sup id="marker"><i class="fas fa-map-marker-alt"></i></sup>
+              <h1 id="name">
+                <%= city %>
+              </h1>
+              <sub id="country"></sub>
+            </div>
+
+            <h1 id="temp">
+              <%= t %>
+            </h1>
+            <div class="min-max">
+              <span id="max">
+                <%= tmax %>
+              </span>
+              <span id="slash">/</span>
+              <span id="min">
+                <%= tmin %>
+              </span>
+              <span style="padding: 0 10px"></span>
+              <span id="day">
+                <%= status %>
+              </span>
+            </div>
+            <span id="description"><i class="fas fa-cloud"></i> <span id="desc"></span></span>
+          </div>
+
+      </main>
+
+
+      <div class="more">
+        <div class="row container">
+          <div class="col-6 col-md-3 col-sm-3">
+            <h2><span id="feel"></span> <sub>
+                <%= t %>°C
+              </sub></h2>
+            <p>
+              Real feel
+            </p>
+          </div>
+          <div class="col-6 col-md-3 col-sm-3">
+            <h2><span id="wind"></span> <sub>
+                <%= wind %>km/h
+              </sub></h2>
+            <p><span id="direction"></span> wind</p>
+          </div>
+          <div class="col-6 col-md-3 col-sm-3">
+            <h2><span id="humid"></span> <sub>
+                <%= hum %>%
+              </sub></h2>
+            <p>Humidity</p>
+          </div>
+          <div class="col-6 col-md-3 col-sm-3">
+            <h2><span id="pressure"></span> <sub>
+                <%= pres %>hPa
+              </sub></h2>
+            <p>Pressure</p>
+          </div>
+
+        </div>
+      </div>
+      <%}%>
+        </div>
+
+    </section>
+
+
+  </body>
+
+</html>
